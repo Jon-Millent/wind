@@ -13,4 +13,9 @@ window.onload=function(){
 			zhe.style.display="none";
 		},1000)
 	},1500);
+	if(document.getElementById('trans-tooltip')){
+		console.log('ok')
+	}else{
+		console.log('not find')
+	}
 }
