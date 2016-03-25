@@ -14,7 +14,7 @@ window.onload=function(){
 		},1000)
 	},1500);
 	if(document.getElementById('trans-tooltip')){
-		console.log(document.getElementById('trans-tooltip').parent)
+		console.log(document.getElementById('trans-tooltip').parentNode);
 	}else{
 		console.log('not find')
 	}
