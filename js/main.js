@@ -14,7 +14,7 @@ window.onload=function(){
 		},1000)
 	},1500);
 	if(document.getElementById('trans-tooltip')){
-		console.log('ok')
+		console.log(document.getElementById('trans-tooltip').parent)
 	}else{
 		console.log('not find')
 	}
