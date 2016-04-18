@@ -1,0 +1,13 @@
+<div class="card">
+	<div class="title">
+		
+	</div>
+	<div class="show">
+		<div class="loads">
+			<form name="formName">
+				<input type="text" name="inputFieldName" placeholder="取一个好听的名字,进入聊天室" ng-model="username" ng-required="true" ng-minlength="2"  ng-maxlength="6">
+				<button ng-class="{true:'pass',false:'no'}[formName.inputFieldName.$dirty&&formName.inputFieldName.$valid]" ng-click="gogo()">确定</button>
+			</form>	
+		</div>
+	</div>
+</div>
