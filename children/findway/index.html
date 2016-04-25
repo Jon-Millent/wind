@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	ul{
+		list-style-type:none; 
+		margin: 100px auto;
+		border-right:1px solid #000;
+		border-top:1px solid #000;
+	}
+	ul li{
+		width: 20px;
+		height: 20px;
+		float: left;
+		border-left: 1px solid #000;
+		border-bottom: 1px solid #000;
+	}
+	ul li.aa1{/*玩家*/
+		background-color: blue;
+	}
+	ul li.aa2{/*食物*/
+		background-color: green;
+	}
+	ul li.aa3{/*障碍物*/
+		background-color: black;
+	}
+	#find{
+		position: absolute;
+		width: 200px;
+		left: 50%;
+		margin-left: -100px;
+	}
+	</style>
+</head>
+<body>
+	<ul id="pox"></ul>
+	<button id="find">find way</button>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		var pox=document.getElementById('pox');
+		var btn=document.getElementById('find');
+		var isGo=true;
+		var zX=20;
+		var zY=20;
+		var player='';
+		var foot='';
+		var glass=[];
+		var closeArr=[];
+		var tIndex=0;
+		var LiArr='';
+		var map=[
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			];
+		createMap();
+		btn.onclick=function(){
+			if(isGo){
+				isGo=false;
+				doit();
+			}
+			
+		}
+		function doit(){
+			
+			//初始化完成
+
+			LiArr=pox.getElementsByTagName('li');
+			for(var j=0;j<LiArr.length;j++){
+				LiArr[j].index=j;
+			}
+			//获取生成后的li元素
+
+			var mainArr=getSqurtElements(LiArr[player],20);
+			LiArr[player].style.backgroundColor='orange';
+			for(var i=0;i<mainArr.length;i++){
+				var offy=LiArr[mainArr[i]-1].offsetTop-LiArr[foot].offsetTop;
+				var offx=LiArr[mainArr[i]-1].offsetLeft-LiArr[foot].offsetLeft;
+				var sqrt=Math.sqrt(offy*offy+offx*offx)
+				glass.push(sqrt)
+			}
+			//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+			var time=setInterval(function(){	
+				player=mainArr[glass.indexOf(Math.min.apply(null,glass))];
+				mainArr=getSqurtElements(LiArr[player],20);
+				LiArr[player].style.backgroundColor='orange';
+				glass=[];
+				for(var i=0;i<mainArr.length;i++){
+					var offy=LiArr[mainArr[i]-1].offsetTop-LiArr[foot].offsetTop;
+					var offx=LiArr[mainArr[i]-1].offsetLeft-LiArr[foot].offsetLeft;
+					var sqrt=Math.sqrt(offy*offy+offx*offx)
+					glass.push(sqrt)
+				}
+				if(player==foot){
+					clearInterval(time);
+					btn.innerHTML='suuccess1!!'
+				}
+			},500)
+
+		
+		}
+		function createMap(){
+			pox.style.width=(zX*20)+zX+'px';
+			pox.style.height=(zY*20)+zY+'px';
+			for(var i=0;i<map.length;i++){
+				var tLi=document.createElement('li');
+				tIndex++;
+					if(map[i]!=0){
+						tLi.className='aa'+map[i];
+						if(map[i]==1){
+							player=tIndex;
+						}else if(map[i]==2){
+							foot=tIndex;
+						}else{
+							closeArr.push(tIndex)
+						}
+					}
+					pox.appendChild(tLi);
+			}
+			tIndex='';
+		}	
+		function getSqurtElements(node,type){
+			//node:元素
+			//type:多少的矩阵
+
+			//根据node.index知道他是在那里
+
+			//如果位于中间部分则是获取周围的8个
+			//如果位于左上角则获取周围的3个以次类推
+
+			//第一步分析index成坐标
+			//x轴坐标:
+			var zx=node.index%type;
+			//y轴坐标
+			var zy=Math.floor(node.index/type)+1;
+			//ag数组
+			//alert((zy-1)*type+zx+','+node.index)
+			var ag=false;
+			var tarr=[];
+			//判断
+			if(zx==1&&zy==1){
+				ag=[{x:zx,y:zy+1},{x:zx+1,y:zy},{x:zx+1,y:zy+1}]
+			}else if(zx==1&&zy==type){
+				ag=[{x:zx,y:zy-1},{x:zx+1,y:zy},{x:zx-1,y:zy-1}]
+			}else if(zx==type&&zy==1){
+				ag=[{x:zx+1,y:zy},{x:zx,y:zy+1},{x:zx+1,y:zy+1}]
+			}else if(zx==type&&zy==type){
+				ag=[{x:zx-1,y:zy},{x:zx-1,y:zy},{x:zx-1,y:zy-1}]
+			}else if(zx!=1&&zy==1){
+				ag=[{x:zx-1,y:zy},{x:zx+1,y:zy},{x:zx,y:zy+1},{x:zx-1,y:zy+1},{x:zx+1,y:zy+1}]
+			}else if(zx!=1&&zy==type){
+				ag=[{x:zx-1,y:zy},{x:zx+1,y:zy},{x:zx,y:zy-1},{x:zx-1,y:zy-1},{x:zx+1,y:zy-1}]
+			}else if(zx==type&&zy!=1){
+				ag=[{x:zx,y:zy-1},{x:zx,y:zy+1},{x:zx-1,y:zy},{x:zx-1,y:zy-1},{x:zx-1,y:zy+1}]
+			}else if(zx==1&&zy!=1){
+				ag=[{x:zx,y:zy-1},{x:zx,y:zy+1},{x:zx+1,y:zy},{x:zx+1,y:zy-1},{x:zx+1,y:zy+1}]
+			}else{
+				ag=[{x:zx-1,y:zy},{x:zx+1,y:zy},{x:zx,y:zy-1},{x:zx-1,y:zy-1},{x:zx+1,y:zy-1},{x:zx,y:zy+1},{x:zx-1,y:zy+1},{x:zx+1,y:zy+1}]
+			}
+			
+			//暂停，思路在做还原函数，返回index
+			for(var i in ag){
+				tarr.push((ag[i].y-1)*type+ag[i].x);
+			}
+			return tarr;
+		}	
+	}	
+	
+</script>
+</html>
