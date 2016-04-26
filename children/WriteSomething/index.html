@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link type="text/css" rel="stylesheet" href="css/main.css" >
+
+</head>
+<body>
+	<div class="show">
+		<img src="images/20141208143439_n5EPm.gif" height="100%" width="100%">
+	</div>
+	<div class="cup"></div>	
+	<div class="content">
+		<div class="normaltext">
+			<h1>水调歌头·明月几时有<span>-苏轼</span></h1>
+		</div>
+		<div class="showtext" id="main">
+			<div><h1></h1></div><span></span>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/WriteSomething.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		var ty=new WriteSomething();
+		ty.doit('main',{
+			data:['明月几时有，把酒问青天。','不知天上宫阙，今夕是何年？','我欲乘风归去，又恐琼楼玉宇,','高处不胜寒。','起舞弄清影，何似在人间？','转朱阁，低绮户，照无眠。','不应有恨，何事长向别时圆？','人有悲欢离合，月有阴晴圆缺，','此事古难全。','但愿人长久，千里共婵娟。']
+		});
+	}
+
+</script>
+</html>

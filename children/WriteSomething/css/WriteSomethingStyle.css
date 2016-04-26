@@ -1,0 +1,14 @@
+.showtext div{
+    display: inline-block;
+}
+.showtext div h1{
+    color: #E8E8FF;
+}
+.showtext span{
+    display: inline-block;
+    width: 8px;
+    height: 30px;
+    background-color: #fff;
+    margin-left: 6px;
+    margin-bottom: -4px;
+}
