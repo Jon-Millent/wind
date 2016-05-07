@@ -1,9 +1,9 @@
-*{
+	*{
 		padding: 0;
 		margin: 0;
 	}
 	#box{
-		width: 600px;
+		width: 700px;
 		height: 4px;
 		background-color: #000;
 		margin: 100px auto;
@@ -30,4 +30,8 @@
 	.some{
 		color: #52CBAD;
 		font-size: 50px;
+	}
+	.test{
+		width:400px;
+		margin: 0 auto;
 	}
