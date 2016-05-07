@@ -21,6 +21,7 @@
 				this.on(this.circle,'mousedown',function(e){
 					if(!This.disable){
 						var e=e||window.event;
+						e.preventDefault();
 						x=e.clientX-this.offsetLeft;
 						This.on(document,'mousemove',function(e){
 							var e=e||window.event;
