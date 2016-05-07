@@ -3,6 +3,9 @@
 		this.box='';
 		this.circle='';
 		this.x=0;
+		this.now=0;
+		this.callback='';
+		this.disable=false;
 	}
 	circleBar.prototype={
 		constructor:circleBar,
@@ -12,27 +15,49 @@
 			this.dosome(callback);
 		},
 		dosome:function(callback){
-			this.circle.style.left=-this.circle.clientWidth/2+'px';
-			var This=this;
-			this.on(this.circle,'mousedown',function(e){
-				var e=e||window.event;
-				x=e.clientX-this.offsetLeft;
-				This.on(document,'mousemove',function(e){
-					var e=e||window.event;
-					var tx=e.clientX-x;
-					if(tx<=-This.circle.clientWidth/2){
-						tx=-This.circle.clientWidth/2;
-					}else if(tx>This.box.clientWidth-This.circle.clientWidth/2){
-						tx=This.box.clientWidth-This.circle.clientWidth/2;
+				this.circle.style.left=-this.circle.clientWidth/2+'px';
+				this.callback=callback;
+				var This=this;
+				this.on(this.circle,'mousedown',function(e){
+					if(!This.disable){
+						var e=e||window.event;
+						x=e.clientX-this.offsetLeft;
+						This.on(document,'mousemove',function(e){
+							var e=e||window.event;
+							var tx=e.clientX-x;
+							if(tx<=-This.circle.clientWidth/2){
+								tx=-This.circle.clientWidth/2;
+							}else if(tx>This.box.clientWidth-This.circle.clientWidth/2){
+								tx=This.box.clientWidth-This.circle.clientWidth/2;
+							}
+							This.circle.style.left=tx+'px';
+							This.now=This.toChangeNumb(tx+10,This.box.clientWidth);
+							This.callback(This.now);
+						})
+						This.on(document,'mouseup',function(){
+							This.off(document,'mousemove');
+							This.off(document,'mouseup');
+						})
+					}else{
+						return;
 					}
-					This.circle.style.left=tx+'px';
-					callback(This.toChangeNumb(tx+10,This.box.clientWidth));
-				})
-				This.on(document,'mouseup',function(){
-					This.off(document,'mousemove');
-					This.off(document,'mouseup');
-				})
-			})
+				})	
+			
+		},
+		moveTo:function(num){
+			if(num>=0&&num<=100&&!this.disable){
+				this.now=num;
+				this.callback(this.now);
+				this.circle.style.left=(num/100)*this.box.clientWidth+'px'
+			}else{
+				return;
+			}
+		},
+		disabled:function(){
+			this.disable=true;
+		},
+		undisabled:function(){
+			this.disable=false;
 		},
 		on:function(node,type,fn){
 			node.lib=node.lib||{};
