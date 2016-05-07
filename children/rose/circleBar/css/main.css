@@ -1,0 +1,33 @@
+*{
+		padding: 0;
+		margin: 0;
+	}
+	#box{
+		width: 600px;
+		height: 4px;
+		background-color: #000;
+		margin: 100px auto;
+		position: relative;
+	}
+	#box .circle{
+		width: 20px;
+		height: 20px;
+		border:1px solid #52524D;
+		background-color: #EAEDE0;
+		position: absolute;
+		left: 0;
+		top: -8px;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	.show{
+		text-align: center;
+		font-size: 100px;
+		color: #333;
+		font-family: "微软雅黑";
+		font-weight: normal;
+	}
+	.some{
+		color: #52CBAD;
+		font-size: 50px;
+	}
