@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<input type="text" id="box" disabled="disabled">
+</body>
+<script type="text/javascript" src="js/rose.rili.js"></script>
+<script type="text/javascript">
+	var a = new Rili(document.getElementById('box'),{
+			from:'1800',
+			noChangeValue:false,
+			afterClick:function(date){
+				
+			}
+		});
+</script>
+
+</html>
