@@ -1,0 +1,30 @@
+html,body,div,img,p{
+	margin: 0;
+	padding: 0;
+}
+#header{
+	width: 980px;
+	height: 357px;
+	margin: 0 auto;
+	background:url('../images/logo.png') left top no-repeat;
+}
+#shop{
+	width:980px;
+	margin: 0 auto;
+	margin-bottom: 2px;
+}
+#shop .show{
+	width: 980px;
+	height: 900px;
+}
+#shop .show .card{
+	width: 244px;
+	height: 386px;
+	float: left;
+	margin-right: 1px;
+}
+#shop .show .card img{
+	width: 244px;
+	height: auto;
+	
+}
