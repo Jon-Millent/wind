@@ -80,5 +80,20 @@ $(function(){
 		$('.mainimg').css('mozTransform','rotate('+deg+'deg)')
 		$('.mainimg').css('transform','rotate('+deg+'deg)')
 	})
-	
+	list.eq(6).click(function(){
+			event.preventDefault();  
+	        html2canvas($('.mainimg').get(0), {  
+	        allowTaint: true,  
+	        taintTest: false,  
+	        onrendered: function(canvas) {  
+	            canvas.id = "mycanvas";  
+	            //document.body.appendChild(canvas);  
+	            //生成base64图片数据  
+	            var dataUrl = canvas.toDataURL();  
+
+	            document.location.href =   dataUrl;  
+
+	        }  
+	    }); 
+	})
 })
