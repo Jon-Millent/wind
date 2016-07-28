@@ -76,13 +76,17 @@
 		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
 		
 		if(scrollTop+document.documentElement.clientHeight>=self.nodeList[0].px){
-		
-			self.resizeSrc(self.nodeList[0].node)
-			self.nodeList.shift()
-			if(self.nodeList.length==0){
-				delete self.nodeList
-				off(window,'scroll')
+			this.active=true;
+			if(this.active){
+				self.resizeSrc(self.nodeList[0].node)
+				self.nodeList.shift()
+				if(self.nodeList.length==0){
+					delete self.nodeList
+					off(window,'scroll')
+				}	
+				this.active=false;
 			}
+
 		}
 	}
 	Simg.prototype.onscrollMove=function(){
