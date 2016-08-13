@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html,body,span,canvas{
+				padding: 0;
+				margin: 0;
+			}
+			canvas{
+				margin: 50px;
+				background: #000;
+			}
+			#caca{
+				position: absolute;
+			}
+			#caca span.btn{
+				display: block;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				left: 0;
+				top:0;
+				border:1px solid #000;
+				background: #fff;
+				border-radius: 50%;
+			}
+			#caca span.btn:nth-of-type(1){
+				top:280px;
+				left:140px;
+			}
+			#caca span.btn:nth-of-type(2){
+				top:310px;
+				left:420px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="box" width="600" height="600"></canvas>
+		<div id="caca">
+			<span class="btn"></span>
+			<span class="btn"></span>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/pentakill.js" ></script>
+	<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var box = document.getElementById('box');
+			var caca = document.getElementById('caca');
+			var caca = $('#caca');
+
+			var cax = new Pentakill(box,caca[0]);
+
+			var ttr = cax.getCavObj();
+			function dddd(x,y,z,k){
+				ttr.clearRect(0,0,600,600)	
+				cax.drow(function($c){
+					$c.moveTo(20,300)
+					$c.bezierCurveTo(x,y,z,k,580,300);
+					$c.stroke();
+				},{
+					strokeStyle : 'yellow'
+				})
+			}
+			dddd(140,300,420,300)
+
+			var btn1 = $(caca.find('.btn')[0]);
+			var btn2 = $(caca.find('.btn')[1]);
+			var d1={
+				x : btn1.position().left,
+				y : btn1.position().top
+			}
+			var d2={
+				x : btn2.position().left,
+				y : btn2.position().top
+			}
+			btn1.mousedown(function(e){
+				var x = e.pageX - $(this).position().left,
+					y = e.pageY - $(this).position().top;
+
+				$(document).mousemove(function(e){
+					var tx = e.pageX - x,
+						ty = e.pageY - y;
+					
+					if(tx<0){
+						tx=0;
+					}else if(tx > caca.width() - btn1.width()/2){
+						tx = caca.width() - btn1.width()/2;
+					}
+					if(ty<0){
+						ty=0;
+					}else if(ty > caca.height() - btn1.height()/2){
+						txy= caca.height() - btn1.height()/2;
+					}
+					btn1.css({
+						left: tx,
+						top: ty
+					})
+					dddd(tx , ty , d2.x , d2.y )
+					e.preventDefault()
+				})
+				$(document).mouseup(function(){
+					$(document).off('mousemove');
+					$(document).off('mouseup');
+					d1.x=btn1.position().left;
+					d1.y=btn1.position().top;
+				})
+			})
+			btn2.mousedown(function(e){
+
+				var x = e.pageX - $(this).position().left,
+					y = e.pageY - $(this).position().top;
+				$(document).mousemove(function(e){
+					var tx = e.pageX - x,
+						ty = e.pageY - y;
+					
+					if(tx<0){
+						tx=0;
+					}else if(tx > caca.width() - btn2.width()/2){
+						tx = caca.width() - btn2.width()/2;
+					}
+					if(ty<0){
+						ty=0;
+					}else if(ty > caca.height() - btn2.height()/2){
+						txy= caca.height() - btn2.height()/2;
+					}
+					btn2.css({
+						left: tx,
+						top: ty
+					})
+					dddd(d1.x , d1.y , tx , ty )
+					e.preventDefault()
+				})
+				$(document).mouseup(function(){
+					$(document).off('mousemove');
+					$(document).off('mouseup');
+					d2.x=btn2.position().left;
+					d2.y=btn2.position().top;
+				})
+			})
+		})
+	</script>
+</html>
