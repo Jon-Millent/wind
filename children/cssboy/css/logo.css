@@ -1,0 +1,72 @@
+		html,body{
+			padding: 0;
+			margin: 0;
+		}
+		/* public */
+		.box{
+			width: 200px;
+			height: 200px;
+			margin: 20px auto;
+			background: #eee;
+			border:1px solid #ccc;
+			border-radius: 12px;
+			position: relative;
+		}
+		.center1,.center2{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+		}
+		/* public */
+
+		/* san */
+		.san{
+			border: 60px solid #333;
+			width: 0;
+			height: 0;
+		}
+		.san.center1{
+			margin-top: -30px;
+			margin-left: -60px;
+		}
+		.san.center2{
+			margin-top: -60px;
+			margin-left: -30px;
+		}
+		.san.right{
+			border-right: none;
+			border-color: transparent transparent transparent #333;
+		}
+		.san.top{
+			border-bottom: none;
+			border-color: #333 transparent transparent transparent;
+		}
+		.san.bottom{
+			border-top: none;
+			border-color: transparent transparent #333 transparent;
+		}
+		.san.left{
+			border-left: none;
+			border-color: transparent #333 transparent transparent;
+		}
+		/* san */
+
+		/* love */
+		.love{
+			width: 0;
+			height: 0;
+			border: 60px solid #333;
+		}
+		.love-type-1{
+			border-width: 0px 30px 150px 30px;
+			border-color: transparent #333 transparent #333;
+		}
+		.love-type-2{
+			border-width: 120px 30px 30px 30px;
+			border-color: #333 #333 transparent #333;
+		}
+		.love.center1{
+			margin-left: -30px;
+			margin-top: -75px;
+		}
+		/* love */
