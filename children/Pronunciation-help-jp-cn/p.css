@@ -1,0 +1,87 @@
+html,body,textarea,p{
+	padding: 0;
+	margin: 0;
+}
+textarea{
+	outline: none;
+}
+body{
+	font-family: 'microsoft yahei', 'Helvetica', simhei, simsun, sans-serif;
+	background: #F2F2F2;
+}
+.header{
+	width: 10rem;
+	height: 4.5rem;
+	position:relative;
+}
+.header .filter,.header .text{
+	width: 10rem;
+	height: 4.5rem;
+	position:absolute;
+	left: 0;
+	top: 0;
+}
+.header .filter{
+	z-index: 1;
+
+	background: -moz-linear-gradient(top, #CDA29B 0%,#E3C5AB 100%);
+	background: -webkit-linear-gradient(top, #CDA29B 0%,#E3C5AB 100%);
+	background: -o-linear-gradient(top, #CDA29B 0%,#E3C5AB 100%);
+	background: -ms-linear-gradient(top, #CDA29B 0%,#E3C5AB 100%);
+	background: linear-gradient(top, #CDA29B 0%,#E3C5AB 100%);
+
+	-webkit-filter: blur(20px);
+	-moz-filter: blur(20px);
+	-ms-filter: blur(20px);
+	-o-filter: blur(20px);
+	filter: blur(20px);
+
+	opacity: 0.9;
+}
+
+.header .text{
+	z-index: 5;
+	font-size: 1rem;
+
+	color: #333;
+	line-height: 4.5rem;
+	font-weight: 100;
+	text-align: center;
+}
+
+.content{
+	width: 9.6rem;
+	margin: 0.2rem auto 0 auto;
+	font-size: 0;
+}
+#jp,#ch{
+	width: 9rem;
+	height: 3rem;
+	padding: 0.3rem;
+	border: 1px solid #D9D5D4;
+	background: #FFFFFF;
+	font-size: 0.5rem;
+	resize: none;
+	border-radius: 0.2rem;
+	color: #333;
+	font-weight: bold;
+}
+#jp{
+
+}
+#ch{
+	margin-top: 0.3rem;
+	margin-bottom: 0.6rem;
+}
+.content a.btn{
+	display: inline-block;
+	width: 100%;
+	height: 1.2rem;
+	background: #41C2FC;
+	text-align: center;
+	line-height: 1.2rem;
+	border-radius: 0.3rem;
+	color: #F9FEFC;
+	font-size: 0.6rem;
+	font-weight: 100;
+}
