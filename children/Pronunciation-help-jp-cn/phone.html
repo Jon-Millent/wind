@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+       <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+       <title>Document</title>
+       <link rel="stylesheet" type="text/css" href="./p.css">
+</head>
+<body>
+	<script type="text/javascript">
+	</script>
+	
+	<div class="header">
+		<div class="filter">
+
+		</div>
+		<div class="text">
+			Jp-Cn
+		</div>
+	</div>
+	<div class="content">
+		<textarea id="jp">请输入文字...</textarea>
+		<textarea id="ch" readonly="readonly"></textarea>
+		<a class="btn" id="btn">转译</a>
+	</div>
+</body>
+<script type="text/javascript" src="mt.phone.js"></script>
+<script type="text/javascript" src="readforj-c.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var html = document.getElementsByTagName('html')[0];
+		var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+		var jp = document.getElementById('jp');
+		var ch = document.getElementById('ch');
+		var btn = document.getElementById('btn');
+		var first = true;
+		var textRev = new Readhelp();
+		function setScreen(){
+			html.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
+		}
+		window.addEventListener(resizeEvt,function(){
+			setScreen();
+		})
+		setScreen();
+		$(jp).mousedown(function(){
+			if(first){
+				this.value = '';
+				first=false;
+			}
+		})
+		$(btn).mousedown(function(){
+			if(jp.value == '' ||  jp.value == '请输入文字...'){
+				ch.value = '未输入文字';
+			}else{
+				ch.value = textRev.toTranslate(jp.value);
+			}
+		})
+	})
+</script>
+</html>
