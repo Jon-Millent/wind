@@ -4,6 +4,15 @@
 	<meta charset="UTF-8">
 	<title>Pronunciation-help-jp-cn</title>
 	<link rel="stylesheet" type="text/css" href="./show.css">
+	<script type="text/javascript">
+		var phoneAgent = ['iphone','android','iPad','blackberry','symbianos','windows phone'];
+		var phone = navigator.userAgent.toLowerCase();
+		for(var i=0;i<phoneAgent.length;i++){
+			if(phone.indexOf(phoneAgent[i]) != -1){
+				window.location.replace('http://www.thisummer.top/children/Pronunciation-help-jp-cn/phone.html')
+			}
+		}
+	</script>
 </head>
 <body>
 	<div class="box center-qurter">
@@ -28,13 +37,6 @@
 </body>
 <script type="text/javascript" src="./readforj-c.js"></script>
 <script type="text/javascript">
-	var phoneAgent = ['iphone','android','iPad','blackberry','symbianos','windows phone'];
-	var phone = navigator.userAgent.toLowerCase();
-	for(var i=0;i<phoneAgent.length;i++){
-		if(phone.indexOf(phoneAgent[i]) != -1){
-			window.location.replace('http://www.thisummer.top/children/Pronunciation-help-jp-cn/phone.html')
-		}
-	}
 	window.onload=function(){
 		var ch = document.getElementById('ch');
 		var jp = document.getElementById('jp');
