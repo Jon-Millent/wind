@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>韩少华的简历</title>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<!--[if lte IE 9]>
+		<link rel="stylesheet" type="text/css" href="./css/ie.css">
+		<script type="text/javascript">
+			document.title = '请升级您的浏览器';
+		</script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- 	
+
+		本项目所使用插件已经托管到GitHub https://github.com/Jon-Millent
+
+	-->
+	<div class="down">
+		<span class="font-font1">&#xea50;</span>
+	</div>
+	<div class="background">
+		<div class="wrap">
+			<div class="bubble bubble-type-5"></div>
+			<div class="bubble bubble-type-3"></div>
+			<div class="bubble bubble-type-2"></div>
+			<div class="bubble bubble-type-4"></div>
+			<div class="bubble bubble-type-1"></div>
+		</div>
+	</div>
+	<div class="section p1">
+		<div class="wrap">
+			<div class="child title"></div>
+			<div class="icon-icon-1 child doge" style="opacity: 0"></div>
+		</div>
+	</div>
+	<div class="section p2" style="opacity: 0">
+		<div class="wrap">
+			<div class="child card">
+				<p class="word">爱</p>
+				<p class="word">自</p>
+				<p class="word">学</p>
+			</div>
+			<div class="child card">
+				<p class="word">无</p>
+				<p class="word">工</p>
+				<p class="word">作</p>
+				<p class="word">经</p>
+				<p class="word">验</p>
+				
+			</div>
+			<div class="child card">
+				<p class="word">代</p>
+				<p class="word">码</p>
+				<p class="word">热</p>
+			</div>
+			<div class="child card">
+				<p class="word">初</p>
+				<p class="word">中</p>
+				<p class="word">学</p>
+				<p class="word">历</p>
+			</div>
+			<div class="child card">
+				<p class="word">21</p>
+				<p class="word">岁</p>
+				<p class="word">男</p>
+			</div>
+			<div class="child name-show">
+				<h2>你好</h2>
+				<p>我是 <span class="t1">韩少华</span> </p>
+			</div>
+		</div>
+	</div>
+	<div class="section p3" style="opacity: 0">
+		<div class="child icon-icon-1 doge-show"></div>
+		<div class="child icon-icon-1 icshow"></div>
+		<div class="child icon-icon-1 icshow"></div>
+		<div class="child icon-icon-1 icshow"></div>
+		<div class="child icon-icon-1 icshow"></div>
+		<div class="child icon-icon-1 icshow"></div>
+		<div class="child icon-icon-1 icshow"></div>
+	</div>
+	<div class="section p4" style="opacity: 0">
+		<div class="wrap">
+			<div class="child send">
+				<div class="mes-list">
+					<i class="icon-imooc">&#xe9e1;</i>韩少华
+				</div>
+				<div class="mes-list">
+					<i class="icon-imooc">&#xe945;</i>millent@126.com
+				</div>
+				<div class="mes-list">
+					<i class="icon-imooc">&#xea8a;</i>lovemillent@gmail.com
+				</div>
+				<div class="mes-list">
+					<i class="icon-imooc">&#xeab0;</i><a href="https://github.com/Jon-Millent">Jon-Millent</a> <a href="#" class="two">获取PDF格式简历</a>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div id="ie">
+		<div class="showss">
+			<div class="top">
+				&#xeadb;
+			</div>
+			<div class="bottom">
+				<p>请升级浏览器查看H5页面</p>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> -->
+<script type="text/javascript" src="./lib/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="./lib/jquery.mouseshow.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var p1 = $('.p1');
+		var p2 = $('.p2');
+		var p3 = $('.p3');
+		var p4 = $('.p4');
+		function setBack(a){
+			$('.background').css({
+				'-webkit-transform':'rotate('+(a*90)+'deg)',
+				'-moz-transform':'rotate('+(a*90)+'deg)',
+				'-ms-transform':'rotate('+(a*90)+'deg)',
+				'-o-transform':'rotate('+(a*90)+'deg)',
+				'transform':'rotate('+(a*90)+'deg)'
+			})
+		}
+		var p1Obj = {
+			'title' : p1.find('.title'),
+			'doge' : p1.find('.doge'),
+			open : function(){
+				this.title.css('opacity',1);
+				this.title.addClass('animation1');
+				var root = this;
+				setTimeout(function(){
+					root.doge.css('opacity','1');
+					root.doge.removeClass('animation2').addClass('animation1');
+				},600)
+			},
+			close : function(){
+				var root = this;
+				
+				root.title.removeClass('animation1');
+				root.doge.removeClass('animation1').addClass('animation2');
+
+				root.title.css('opacity',0);
+
+				setTimeout(function(){
+					root.doge.css('opacity','0');
+				},500)
+				
+			}
+		}
+		var p2Obj = {
+			cards : p2.find('.card'),
+			open : function(){
+				p2.css('opacity','1');
+				var root = this;
+				setTimeout(function(){
+					root.cards.addClass('now');
+				},500)
+				
+			},
+			close : function(){
+				this.cards.removeClass('now');
+				setTimeout(function(){
+					p2.css('opacity','0');
+				},500)
+			}
+		}
+		var p3Obj = {
+			icshow : p3.find('.icshow'),
+			open : function(){
+				p3.css('opacity','1');
+				this.icshow.addClass('now');
+			},
+			close : function(){
+				
+				this.icshow.removeClass('now');
+				setTimeout(function(){
+					p3.css('opacity','0');
+				},800)
+			}
+		}
+		var p4Obj = {
+			send : p4.find('.send'),
+			open : function(){
+				var root = this;
+				setTimeout(function(){
+					p4.css('opacity','1');
+					root.send.removeClass('ani2').addClass('ani');
+				},400)
+				
+			},
+			close : function(){
+				var root = this;
+				root.send.removeClass('ani').addClass('ani2');
+				setTimeout(function(){
+					p4.css('opacity','0');
+
+				},800)
+
+			}
+		}
+		$('.background').css({
+			'width' : $(document).width(),
+			'marginLeft' : -$(document).width()/2
+		})
+		setTimeout(function(){
+			$('.background').addClass('show-1');
+		},100)
+		$(document.body).mouseshow({
+			childName : 'section',
+			isRound : true,
+			start : function(){
+				p1Obj.open();
+			},
+			next : function(a,b,c){
+				console.log('next')
+				
+				setBack(a)
+				console.log(a)
+				switch(a){
+					case 0:
+						p1Obj.open();
+						p4Obj.close();
+					break;
+					case 1:
+						p1Obj.close();
+						p2Obj.open();
+					break;
+					case 2:
+						p2Obj.close();
+						p3Obj.open();
+					break;
+					case 3:
+						p3Obj.close();
+						p4Obj.open();
+					break;
+				}
+
+			},
+			prev : function(a,b,c){
+				setBack(a)
+				switch(a){
+					case 0:
+						p1Obj.open();
+						p2Obj.close();
+					break;
+					case 1:
+						p2Obj.open();
+						p3Obj.close();
+					break;
+					case 2:
+						p3Obj.open();
+						p4Obj.close();
+					break;
+					case 3:
+						p4Obj.open();
+						p1Obj.close();
+					break;
+				}
+			}
+		})
+	})
+</script>
+</html>
