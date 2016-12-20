@@ -21,6 +21,10 @@
 			height: 100%;
 		}
 		#box li{
+			-webkit-transition: all 1s ease;
+			-moz-transition: all 1s ease;
+			-ms-transition: all 1s ease;
+			-o-transition: all 1s ease;
 			transition: all 1s ease;
 		}
 	</style>
@@ -39,11 +43,30 @@
 </body>
 <script type="text/javascript" src="./js/threedslide.js"></script>
 <script type="text/javascript">
-	window.onload=function(){
+function ready(callback) {
+    if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', function () {
+            document.removeEventListener('DOMContentLoaded', arguments.callee, false);
+            callback();
+        }, false)
+    }
+    else if (document.attachEvent) {
+        document.attachEvent('onreadytstatechange', function () {
+              if (document.readyState == "complete") {
+                        document.detachEvent("onreadystatechange", arguments.callee);
+                        callback();
+               }
+        })
+    }
+    else if (document.lastChild == document.body) {
+        callback();
+    }
+}
+	ready(function(){
 		var box = document.getElementById('box');
 		var a = new threedslide({
 			element : box,
-			autoplay : false,
+			autoplay : true,
 			next : function(a,b){
 				
 			},
@@ -74,6 +97,7 @@
 			a.moveTo(parseInt(gg.value))
 		}
 
-	}
+	})
+
 </script>
 </html>
