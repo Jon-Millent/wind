@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<style type="text/css">
+		html,body{
+			padding: 0;
+			margin: 0;
+		}
+		#box{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			position: absolute;
+			left: 0;
+			top: 0;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>
+	<a href="www.baidu.com">sssss</a>
+<!-- 	<p id="aa">123456</p> -->
+	<div id="box">
+		
+	</div>
+</body>
+<script type="text/javascript">
+	window.onload=function(){
+		var a = document.getElementById('box');
+		var aa = document.getElementById('aa');
+		box.addEventListener('touchstart',function(e){
+			console.log('123')
+			this.style.display = 'none';
+			e.preventDefault();
+		})
+		// aa.addEventListener('click',function(){
+		// 	alert('123456')
+		// })
+	}
+</script>
+</html>
