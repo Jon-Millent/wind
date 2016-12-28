@@ -3,7 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<meta name="viewport" content="width=320,user-scalable=no">
+	<meta name="viewport" content="width=320,user-scalable=no,minimal-u">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#010820" />
+
 	<style type="text/css">
 		html,body{
 			padding: 0;
@@ -449,78 +452,10 @@
 </body>
 <script type="text/javascript" src="./m.phone.js"></script>
 <script type="text/javascript">
-	function FullHelp(){
-	}
-	FullHelp.prototype.init = function(ele,fn){
-	   this.element = ele;
-	    if(this.test(ele)){
-	        this.open = this.type == '' ? 'requestFullScreen' : this.type+'RequestFullScreen';
-	        this.close = this.type == '' ? 'cancelFullScreen' : this.type+'CancelFullScreen';
-	        this.eventType = this.type == '' ? 'fullscreenchange' : this.type+'fullscreenchange';
-	        document.addEventListener(this.eventType, function(e) {
-	            fn(e);
-	        });
-	        document.addEventListener(this.eventType, function(e) {
-	            fn(e);
-	        });
-	        document.addEventListener(this.eventType, function(e) {
-	            fn(e);
-	        });
-	        return this;
-	    }else{
-	        return null;
-	    }
-	}
-	FullHelp.prototype.fullOpen=function () {
-	    this.element[this.open]();
-	}
-	FullHelp.prototype.test=function () {
-	    var p = false;
-	    if(this.element.requestFullScreen) {
-	        p = true;
-	        this.type = '';
-	    } else if(this.element.mozRequestFullScreen) {
-	        p = true;
-	        this.type = 'moz';
-	    } else if(this.element.webkitRequestFullScreen) {
-	        p = true;
-	        this.type = 'webkit';
-	    }
-	    return p;
-	}
-	FullHelp.prototype.fullClose=function() {
-	    document[ this.close]();
-	}
-	FullHelp.prototype.showMessage=function () {
-	    var d = document;
-	    var fullE = null;
-	    var fullEnable = "fullScreen is disable!";
-	    if(d.fullScreenElement){
-	        fullE = d.fullScreenElement;
-	    } else if(d.mozFullScreenElement){
-	        // 如果有问题，把mozFullscreenElement 改为 mozFullScreenElement,S大写
-	        fullE = d.mozFullScreenElement;
-	    } else if(d.webkitFullscreenElement){
-	        // 本人的为chrome， Fullscreen 之中，s为小写。
-	        fullE = d.webkitFullscreenElement;
-	    }
-	    // 如果有问题，请切换 fullScreen 中 s 的大小写。
-	    if(d.fullScreenEnabled){
-	        fullEnable = d.fullScreenEnabled;
-	    } else if(d.mozFullScreenEnabled){
-	        fullEnable = d.mozFullScreenEnabled;
-	    } else if(d.webkitFullscreenEnabled){
-	        // 注意 Fullscreen 的中间s大小写
-	        fullEnable = d.webkitFullscreenEnabled;
-	    }
-	    return {
-	        ele : fullE,
-	        mes : fullEnable
-	    }
-	}
+
 	$(function(){
 		$(document.body).css('height',document.documentElement.clientHeight+'px');
-		var aFull = new FullHelp().init(document.documentElement,function(){});
+
 
 		var HP = 5;
 		var NOWHP = 5;
@@ -621,10 +556,10 @@
 			
 				$(huaji).css('transform','translate3d('+x+'px,'+y+'px,0px)');
 			
-				console.log(x,y)
+				
 			},
 			start : function(){
-				aFull.fullOpen();
+				
 				TIMEOBJ = setInterval(function(){
 					gameBoy.mainWhile();
 				},NOWTIME)
@@ -646,7 +581,7 @@
 				$(bgs).css('width','100%');
 				leavesss.innerHTML= fenssss.innerHTML = '0';
 
-				console.log(leavesss.innerHTML)
+				
 				hit.children[0].innerHTML = '0';
 			}
 		}
