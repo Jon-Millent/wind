@@ -17,6 +17,40 @@
 			transform: translate3d(0, 0, 0);
 		   	overflow: hidden;
 		}
+		@-webkit-keyframes myhuaji{
+			0%{
+				-webkit-transform: rotate(0deg);
+			}
+			25%{
+				-webkit-transform: rotate(25deg);
+			}
+			50%{
+				-webkit-transform: rotate(0deg);
+			}
+			75%{
+				-webkit-transform: rotate(-30deg);
+			}
+			100%{
+				-webkit-transform: rotate(0deg);
+			}
+		}
+		@-moz-keyframes myhuaji{
+			0%{
+				-moz-transform: rotate(0deg);
+			}
+			25%{
+				-moz-transform: rotate(25deg);
+			}
+			50%{
+				-moz-transform: rotate(0deg);
+			}
+			75%{
+				-moz-transform: rotate(-30deg);
+			}
+			100%{
+				-moz-transform: rotate(0deg);
+			}
+		}
 		@keyframes myhuaji{
 			0%{
 				transform: rotate(0deg);
@@ -32,6 +66,34 @@
 			}
 			100%{
 				transform: rotate(0deg);
+			}
+		}
+		@-webkit-keyframes eyse{
+			0%{
+				-webkit-transform: translateX(0px)
+			}
+			25%{
+				-webkit-transform: translateX(6px)
+			}
+			50%{
+				-webkit-transform: translateX(10px)
+			}
+			100%{
+				-webkit-transform: translateX(0px)
+			}
+		}
+		@-moz-keyframes eyse{
+			0%{
+				-moz-transform: translateX(0px)
+			}
+			25%{
+				-moz-transform: translateX(6px)
+			}
+			50%{
+				-moz-transform: translateX(10px)
+			}
+			100%{
+				-moz-transform: translateX(0px)
 			}
 		}
 		@keyframes eyse{
@@ -63,6 +125,10 @@
 			left: 50%;
 			top: 50%;
 			z-index: 50;
+			-webkit-transition: all 1s ease;
+			-moz-transition: all 1s ease;
+			-ms-transition: all 1s ease;
+			-o-transition: all 1s ease;
 			transition: all 1s ease;
 		}
 		.huaji .eyes{
@@ -119,6 +185,8 @@
 			margin-top: -22px;
 			z-index: 50;
 			transform-origin: center center;
+			-webkit-animation: myhuaji 2s ease infinite;
+			-moz-animation: myhuaji 2s ease infinite;
 			animation: myhuaji 2s ease infinite;
 		}
 		.bg{
@@ -164,6 +232,10 @@
 			margin-top: -200px;
 			margin-left: -150px;
 			z-index: 40;
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-ms-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
 			transition: all 0.5s ease;
 			opacity: 0.1;
 			transform: scale(2);
@@ -233,7 +305,11 @@
 		}
 		.message span.bgs{
 			z-index: 1;
-			transition: all 1s ease ;
+			-webkit-transition: all 1s ease;
+			-moz-transition: all 1s ease;
+			-ms-transition: all 1s ease;
+			-o-transition: all 1s ease;
+			transition: all 1s ease;
 		}
 		.message span.xue{
 			background-color: #2AA211;
@@ -247,6 +323,7 @@
 			bottom: 10px;
 			right: 0;
 			color: #fff;
+			z-index: 40;
 		}
 		.nowshow span.d{
 			color: #FF00FF;
@@ -269,6 +346,33 @@
 			transform: scale(2);
 			z-index: 20;
 		}
+		@-webkit-keyframes aaa{
+			0%{
+				-webkit-transform: scale(2);
+			}
+			70%{
+				opacity: 1;
+				-webkit-transform: scale(1);
+			}
+			100%{
+				-webkit-transform: scale(1);
+				opacity: 0;
+			}
+		}
+		@-moz-keyframes aaa{
+			0%{
+				-moz-transform: scale(2);
+			}
+			70%{
+				opacity: 1;
+				-moz-transform: scale(1);
+			}
+			100%{
+				-moz-transform: scale(1);
+				opacity: 0;
+			}
+		}
+
 		@keyframes aaa{
 			0%{
 				transform: scale(2);
@@ -284,6 +388,8 @@
 		}
 		.hit.show{
 			
+			-webkit-animation: aaa 0.8s ease;
+			-moz-animation: aaa 0.8s ease;
 			animation: aaa 0.8s ease;
 
 		}
@@ -370,7 +476,9 @@
 		function getRandom(n,m){
 			return Math.ceil(Math.random()*(m-n-1))+n;
 		}
-
+		$(document).mousedown(function(event) {
+			event.preventDefault();
+		})
 		var huaji = document.getElementById('huaji');
 		$(huaji).css('left',(document.documentElement.clientWidth-huaji.offsetWidth)/2 + 'px');
 		$(huaji).css('top',(document.documentElement.clientHeight-huaji.offsetHeight)/2 + 'px');
