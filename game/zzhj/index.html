@@ -520,8 +520,8 @@
 	}
 	$(function(){
 		$(document.body).css('height',document.documentElement.clientHeight+'px');
-		var aFull = new FullHelp().init(document.documentElement);
-		aFull.fullOpen();
+		var aFull = new FullHelp().init(document.documentElement,function(){});
+
 		var HP = 5;
 		var NOWHP = 5;
 		var LEAVER = [3000,2000,1500,1000,800];
@@ -624,6 +624,7 @@
 				console.log(x,y)
 			},
 			start : function(){
+				aFull.fullOpen();
 				TIMEOBJ = setInterval(function(){
 					gameBoy.mainWhile();
 				},NOWTIME)
