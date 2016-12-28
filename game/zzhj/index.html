@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=320,user-scalable=no">
+	<style type="text/css">
+		html,body{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			-ms-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		   	overflow: hidden;
+		}
+		@keyframes myhuaji{
+			0%{
+				transform: rotate(0deg);
+			}
+			25%{
+				transform: rotate(25deg);
+			}
+			50%{
+				transform: rotate(0deg);
+			}
+			75%{
+				transform: rotate(-30deg);
+			}
+			100%{
+				transform: rotate(0deg);
+			}
+		}
+		@keyframes eyse{
+			0%{
+				transform: translateX(0px)
+			}
+			25%{
+				transform: translateX(6px)
+			}
+			50%{
+				transform: translateX(10px)
+			}
+			100%{
+				transform: translateX(0px)
+			}
+		}
+		a{
+			text-decoration: none;
+		}
+		.btn{
+			display: block;
+		}
+		.huaji{
+			width: 100px;
+			height: 100px;
+			background-color: #F3AD31;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			z-index: 50;
+			transition: all 1s ease;
+		}
+		.huaji .eyes{
+			position: absolute;
+			width: 40px;
+			height: 10px;
+			border: 3px solid #120100;
+			border-radius: 7px;
+			background-color: #FDFDFC;
+			z-index: 100;
+		}
+		.huaji .eyes.left{
+			top: 20px;
+			left: -6px;
+		}
+		.huaji .eyes.left .boll{
+			animation: eyse 2s ease infinite;
+		}
+		.huaji .eyes.right .boll{
+			animation: eyse 2s ease infinite;
+		}
+		.huaji .eyes.right{
+			top: 20px;
+			right: 6px;
+		}
+		.huaji .eyes .boll{
+			width: 10px;
+			height: 10px;
+			background-color: #010101;
+			border-radius: 50%;
+			float: left;
+		}
+		.huaji .mouse{
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			border: 3px solid #B92717;
+			border-radius: 50%;
+			left: 50%;
+			top: 50%;
+			box-sizing: border-box;
+			margin-left: -30px;
+			margin-top: -20px;
+			z-index: 1;
+		}
+		.huaji .zhe{
+			position: absolute;
+			width: 80px;
+			height: 30px;
+			background-color:#F3AD31;
+			left: 50%;
+			top: 50%;
+			margin-left: -40px;
+			margin-top: -22px;
+			z-index: 50;
+			transform-origin: center center;
+			animation: myhuaji 2s ease infinite;
+		}
+		.bg{
+			width: 100%;
+			height: 100%;
+			background-color: #010820;
+			position: absolute;
+			left: 0;
+			top: 0;
+			overflow: hidden;
+		}
+		.bg .bb1{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-top: -200px;
+			margin-left: -200px;
+			background-color: #011D49;
+			border-radius: 50%;
+			z-index: 1;
+		}
+		.bg .bb2{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-top: -100px;
+			margin-left: -100px;
+			background-color: #012D6A;
+			border-radius: 50%;
+			z-index: 2;
+		}
+		.game-rule,.game-over{
+			width: 300px;
+			height: 400px;
+			background-color: #fff;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-top: -200px;
+			margin-left: -150px;
+			z-index: 40;
+			transition: all 0.5s ease;
+			opacity: 0.1;
+			transform: scale(2);
+		}
+		.game-over{
+			display: none;
+		}
+		
+		.game-rule p,.game-over p{
+			text-align: center;
+			color: #FF00FF;
+			font-size: 16px;
+		}
+
+		.game-rule p.s1{
+			padding-top: 120px;
+		}
+		.game-rule p.s2{
+			color: #FF7800;
+		}
+		.game-rule p.s3{
+			color: #E8B10C;
+		}
+		.game-rule a.btn,.game-over a.btn{
+			
+			margin-left: 90px;
+			width: 120px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			font-size: 13px;
+			color: #FFFFFB;
+			background-color: #050706;
+			border-radius: 20px;
+		}
+		.game-over a.btn{
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		/* run time class name */
+		.huaji-show-01{
+			margin-top: -120px;
+		}
+		.rule-show-01{
+			transform: scale(1);
+			opacity: 0.9;
+		}
+		.message{
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			width: 180px;
+			height: 20px;
+			
+			background-color: #ccc;
+		}
+		.message span{
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 20px;
+			background-color: #B50D08;
+		}
+		.message span.bgs{
+			z-index: 1;
+			transition: all 1s ease ;
+		}
+		.message span.xue{
+			background-color: #2AA211;
+			z-index: 20;
+		}
+		.nowshow{
+			
+			height: 20px;
+			line-height: 20px;
+			position: absolute;
+			bottom: 10px;
+			right: 0;
+			color: #fff;
+		}
+		.nowshow span.d{
+			color: #FF00FF;
+		}
+		.change-bg{
+			background-color: #E00;
+		}
+		.hit{
+			position: absolute;
+			width: 200px;
+			height: 40px;
+			line-height: 40px;
+			text-align: right;
+			top: 60px;
+			right: 40px;
+			color: #fff;
+			font-size: 30px;
+			font-weight: bold;
+			opacity: 0;
+			transform: scale(2);
+			z-index: 20;
+		}
+		@keyframes aaa{
+			0%{
+				transform: scale(2);
+			}
+			70%{
+				opacity: 1;
+				transform: scale(1);
+			}
+			100%{
+				transform: scale(1);
+				opacity: 0;
+			}
+		}
+		.hit.show{
+			
+			animation: aaa 0.8s ease;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="bg">
+		<div class="bb1"></div>
+		<div class="bb2"></div>
+	</div>
+	<div class="huaji" id="huaji" >
+		<div class="eyes left">
+			<div class="boll">
+				
+			</div>
+		</div>
+		<div class="eyes right">
+			<div class="boll">
+				
+			</div>
+		</div>
+		<div class="zhe">
+			
+		</div>
+		<div class="mouse">
+			
+		</div>
+	</div>
+	<div class="game-rule" id="rule">
+		<p class="s1">欢迎来到抓住滑稽</p>
+		<p class="s2">快速单击就可以滑稽</p>
+		<p class="s2">miss一次就会掉血</p>
+		<a href="javascript:;" class="btn" id="gamestart">开始游戏</a>
+	</div>
+	<div class="game-over" id="gameover">
+		<p>失败！</p>
+		<p>得分：<span id="ggg"></span></p>
+		<a href="javascript:;" class="btn" id="again">
+			再来一次
+		</a>
+	</div>
+	<div class="message">
+		<span class="xue" id="xue"></span>
+		<span class="bgs" id="bgs"></span>
+	</div>
+	<div class="nowshow">
+		<span class="d">得分</span><span id="b-fen">0</span>
+		<span class="d">等级</span><span id="b-leave">0</span>
+	</div>
+	<div class="hit" id="hit">
+		连击X<span></span>
+	</div>
+</body>
+<script type="text/javascript" src="./m.phone.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(document.body).css('height',document.documentElement.clientHeight+'px');
+		var HP = 5;
+		var NOWHP = 5;
+		var LEAVER = [3000,2000,1500,1000,800];
+		var WHEMTIME  = 10;
+		var NOWTIME = LEAVER[0];
+		var NOWONCE = 0;
+		var INDEX = 0;
+		var TIMEOBJ = null;
+		var TIMEOBJ2 = null;
+		var HUAJIWINNER = false;
+
+		var FENSHUS = 0;
+		var LV = 0;
+
+		function clear(){
+			HP = 5;
+			NOWHP = 5;
+			LEAVER = [3000,2000,1500,1000,800];
+			WHEMTIME  = 10;
+			NOWTIME = LEAVER[0];
+			NOWONCE = 0;
+			NDEX = 0;
+			HUAJIWINNER = false;
+			FENSHUS = 0;
+			LV = 0;	
+		}
+		function getRandom(n,m){
+			return Math.ceil(Math.random()*(m-n-1))+n;
+		}
+
+		var huaji = document.getElementById('huaji');
+		$(huaji).css('left',(document.documentElement.clientWidth-huaji.offsetWidth)/2 + 'px');
+		$(huaji).css('top',(document.documentElement.clientHeight-huaji.offsetHeight)/2 + 'px');
+		var rule = document.getElementById('rule');
+		var gamestart = document.getElementById('gamestart');
+
+		var xue = document.getElementById('xue');
+		var bgs = document.getElementById('bgs');
+		var fenssss = document.getElementById('b-fen');
+		var leavesss = document.getElementById('b-leave');
+		var hit = document.getElementById('hit');
+		var gameover = document.getElementById('gameover');
+		var ggg = document.getElementById('ggg');
+		var again = document.getElementById('again');
+
+		var ONCEHP = (xue.offsetWidth/HP);
+		var XRANDOM = document.documentElement.clientWidth - huaji.offsetWidth;
+		var YRANDOM = document.documentElement.clientHeight - huaji.offsetHeight;
+
+		var gameBoy = {
+			welcomeShow : function(){
+				$(huaji).addClass('huaji-show-01');
+				$(rule).addClass('rule-show-01')
+			},
+			jianxue : function(){
+				var once =xue.offsetWidth-ONCEHP;
+				$(xue).css('width',once+'px');
+				$(bgs).css('width',once+'px');
+				NOWHP--;
+				if(NOWHP <=0 ){
+					clearInterval(TIMEOBJ);
+					clearInterval(TIMEOBJ2);
+					ggg.innerHTML = FENSHUS/10;
+					clear();
+					$(gameover).css('display','block');
+					setTimeout(function(){
+						$(gameover).addClass('rule-show-01');
+						$(huaji).css('left',(document.documentElement.clientWidth-huaji.offsetWidth)/2 + 'px');
+						$(huaji).css('top',(document.documentElement.clientHeight-huaji.offsetHeight)/2 + 'px');
+					},10)
+					$(huaji).off('mousedown');
+					
+				}
+			},
+			mainWhile:function(){
+				if(!HUAJIWINNER){
+					gameBoy.jianxue();
+				}
+				$(hit).removeClass('show');
+				HUAJIWINNER = false;
+				if(NOWONCE>=WHEMTIME){
+					INDEX++;
+					NOWONCE = 0;
+					NOWTIME = LEAVER[INDEX] || 800;
+					leavesss.innerHTML = INDEX;
+					clearTimeout(TIMEOBJ);
+					TIMEOBJ = setInterval(function(){
+						gameBoy.mainWhile();
+					},NOWTIME)
+				}	
+				
+				var x = getRandom(-1,XRANDOM)+'px';
+				var y = getRandom(-1,YRANDOM)+'px';
+				$(huaji).css('left',x);
+				$(huaji).css('top',y);
+			},
+			start : function(){
+				TIMEOBJ = setInterval(function(){
+					gameBoy.mainWhile();
+				},NOWTIME)
+
+				TIMEOBJ2 = setInterval(function(){
+					NOWONCE++;
+				},1000)
+				$(huaji).mousedown(function(){
+					console.log('ggg')
+					if(!HUAJIWINNER){
+						FENSHUS+=10;
+						fenssss.innerHTML = FENSHUS;
+						$(hit).addClass('show');
+						hit.children[0].innerHTML = FENSHUS/10;
+					}
+					HUAJIWINNER = true;
+				})	
+				$(xue).css('width','100%');
+				$(bgs).css('width','100%');
+				leavesss.innerHTML = '0';
+				hit.children[0].innerHTML = '0';
+			}
+		}
+		setTimeout(function(){
+			gameBoy.welcomeShow()
+		},200)
+		$(gamestart).mousedown(function(){
+			
+			$(huaji).removeClass('huaji-show-01');
+			$(rule).removeClass('rule-show-01');
+			setTimeout(function(){
+				$(rule).css('display','none');
+			},400)
+
+			gameBoy.start();
+		})
+		$(again).mousedown(function(){
+
+			$(gameover).removeClass('rule-show-01');
+			setTimeout(function(){
+				$(gameover).css('display','none');
+			},400)
+
+			gameBoy.start();
+
+		})
+	})
+</script>
+</html>
