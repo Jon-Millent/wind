@@ -504,6 +504,7 @@
 		$(huaji).css('top',nowY + 'px');
 		var rule = document.getElementById('rule');
 		var gamestart = document.getElementById('gamestart');
+		var bowers = ['webkit','moz',''];
 
 		var xue = document.getElementById('xue');
 		var bgs = document.getElementById('bgs');
@@ -517,7 +518,12 @@
 		var ONCEHP = (xue.offsetWidth/HP);
 		var XRANDOM = document.documentElement.clientWidth - huaji.offsetWidth;
 		var YRANDOM = document.documentElement.clientHeight - huaji.offsetHeight;
-
+		function setXY(x,y){
+			for(var i=0;i<bowers.length;i++){
+				var ggname = bowers[i] == '' ? 'transform' : bowers[i]+'Transform';
+				$(huaji).css(ggname,'translate3d('+x+'px,'+y+'px,0px)');
+			}
+		}
 		var gameBoy = {
 			welcomeShow : function(){
 				$(huaji).addClass('huaji-show-01');
@@ -536,7 +542,7 @@
 					$(gameover).css('display','block');
 					setTimeout(function(){
 						$(gameover).addClass('rule-show-01');
-						$(huaji).css('transform','translate3d(0px,0px,0px)');
+						setXY(0,0);
 					},10)
 					$(huaji).off('mousedown');
 					
@@ -562,7 +568,7 @@
 				var x = getRandom(-1,XRANDOM)-nowX;
 				var y = getRandom(-1,YRANDOM)-nowY;
 			
-				$(huaji).css('transform','translate3d('+x+'px,'+y+'px,0px)');
+				setXY(x,y);
 			
 				
 			},
