@@ -37,7 +37,7 @@
 		var root = this;
 		this.on('touchstart',function(event){
 			if(event.targetTouches.length == 1){
-				fn.call(root.node,event.targetTouches[0]);
+				fn.call(root.node,event,event.targetTouches[0]);
 			}
 		})
 	};
@@ -49,14 +49,14 @@
 	Factory.prototype.mouseup=function(fn){
 		var root = this;
 		this.on('touchend',function(event){
-			fn.call(root.node,event.targetTouches[0]);
+			fn.call(root.node,event,event.targetTouches[0]);
 		})
 	};
 	Factory.prototype.mousemove=function(fn){
 		var root = this;
 		this.on('touchmove',function(event){
 			if(event.targetTouches.length == 1){
-				fn.call(root.node,event.targetTouches[0]);
+				fn.call(root.node,event,event.targetTouches[0]);
 			}
 		})
 	};
