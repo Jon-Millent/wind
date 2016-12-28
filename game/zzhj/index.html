@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=320,user-scalable=no">
 
 
-	
+
 
 	<style type="text/css">
 		html,body{
@@ -129,6 +129,9 @@
 			left: 50%;
 			top: 50%;
 			z-index: 50;
+			
+		}
+		.huaji.anisss{
 			-webkit-transition: all 1s ease;
 			-moz-transition: all 1s ease;
 			-ms-transition: all 1s ease;
@@ -287,7 +290,7 @@
 		}
 		/* run time class name */
 		.huaji-show-01{
-			margin-top: -120px;
+			transform: translateY(-120px);
 		}
 		.rule-show-01{
 			transform: scale(1);
@@ -491,6 +494,9 @@
 			event.preventDefault();
 		})
 		var huaji = document.getElementById('huaji');
+		setTimeout(function(){
+			$(huaji).addClass('anisss');
+		},100)
 		var nowX = (document.documentElement.clientWidth-huaji.offsetWidth)/2;
 		var nowY = (document.documentElement.clientHeight-huaji.offsetHeight)/2
 		$(huaji).css('left', nowX + 'px');
@@ -561,6 +567,7 @@
 			},
 			start : function(){
 				
+
 				TIMEOBJ = setInterval(function(){
 					gameBoy.mainWhile();
 				},NOWTIME)
