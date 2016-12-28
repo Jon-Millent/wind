@@ -484,8 +484,10 @@
 			event.preventDefault();
 		})
 		var huaji = document.getElementById('huaji');
-		$(huaji).css('left',(document.documentElement.clientWidth-huaji.offsetWidth)/2 + 'px');
-		$(huaji).css('top',(document.documentElement.clientHeight-huaji.offsetHeight)/2 + 'px');
+		var nowX = (document.documentElement.clientWidth-huaji.offsetWidth)/2;
+		var nowY = (document.documentElement.clientHeight-huaji.offsetHeight)/2
+		$(huaji).css('left', nowX + 'px');
+		$(huaji).css('top',nowY + 'px');
 		var rule = document.getElementById('rule');
 		var gamestart = document.getElementById('gamestart');
 
@@ -515,13 +517,12 @@
 				if(NOWHP <=0 ){
 					clearInterval(TIMEOBJ);
 					clearInterval(TIMEOBJ2);
-					ggg.innerHTML = FENSHUS/10;
+					ggg.innerHTML = FENSHUS;
 					clear();
 					$(gameover).css('display','block');
 					setTimeout(function(){
 						$(gameover).addClass('rule-show-01');
-						$(huaji).css('left',(document.documentElement.clientWidth-huaji.offsetWidth)/2 + 'px');
-						$(huaji).css('top',(document.documentElement.clientHeight-huaji.offsetHeight)/2 + 'px');
+						$(huaji).css('transform','translate3d(0px,0px,0px)');
 					},10)
 					$(huaji).off('mousedown');
 					
@@ -544,10 +545,12 @@
 					},NOWTIME)
 				}	
 				
-				var x = getRandom(-1,XRANDOM)+'px';
-				var y = getRandom(-1,YRANDOM)+'px';
-				$(huaji).css('left',x);
-				$(huaji).css('top',y);
+				var x = getRandom(-1,XRANDOM)-nowX;
+				var y = getRandom(-1,YRANDOM)-nowY;
+			
+				$(huaji).css('transform','translate3d('+x+'px,'+y+'px,0px)');
+			
+				console.log(x,y)
 			},
 			start : function(){
 				TIMEOBJ = setInterval(function(){
