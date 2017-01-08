@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		html,body{
+			padding: 0;
+			margin: 0;
+			height: 100%;
+			width: 100%;
+		}
+		html{ font-family: "宋体","SimSun","HanHei SC","PingHei","PingFang SC","STHeitiSC-Light","Helvetica Neue","Helvetica","Arial",sans-serif; }
+		h1{
+			padding: 0;
+			margin: 0;
+			color: #2C2E32;
+			font-size: 110px;
+			font-weight: bold;
+		}
+		body{
+			background-color: #F7F7F7;
+			-webkit-box-shadow: inset 0 0 130px 50px #B0B4BC;
+			-moz-box-shadow: inset 0 0 130px 50px #B0B4BC;
+			-ms-box-shadow: inset 0 0 130px 50px #B0B4BC;
+			-o-box-shadow: inset 0 0 130px 50px #B0B4BC;
+			overflow: hidden;
+		}
+		.wrap-box{
+			width: 136px;
+			height: 260px;
+			position: absolute;
+			/* overflow: hidden; */
+
+			left: 50%;
+			top: 50%;
+			margin-top: -130px;
+			margin-left: -68px;
+			text-align: center;
+			-webkit-filter: blur(1.2px);
+			-moz-filter: blur(1.2px);
+			-ms-filter: blur(1.2px);
+			-o-filter: blur(1.2px);
+
+			-webkit-animation: cat 5.6s linear infinite;
+			-moz-animation: cat 5.6s linear infinite;
+			-ms-animation: cat 5.6s linear infinite;
+			animation: cat 5.6s linear infinite;
+		}
+		.s1{
+			-webkit-animation: rou 5s 2.3s linear infinite;
+			-moz-animation: rou 5s 2.3s linear infinite;
+			-ms-animation: rou 5s 2.3s linear infinite;
+			animation: rou 5s 2.3s linear infinite;
+		}
+		.s2{
+			-webkit-animation: rou 4.3s 4s linear infinite;
+			-moz-animation: rou 4.3s 4s linear infinite;
+			-ms-animation: rou 4.3s 4s linear infinite;
+			animation: rou 4.3s 4s linear infinite;
+		}
+		@-webkit-keyframes rou{
+			0%{
+				-webkit-filter: blur(1.2px);
+			}
+			50%{
+				-webkit-filter: blur(4px);
+			}
+			100%{
+				-webkit-filter: blur(0px);
+			}
+		}
+		@-moz-keyframes rou{
+			0%{
+				-moz-filter: blur(1.2px);
+			}
+			50%{
+				-moz-filter: blur(4px);
+			}
+			100%{
+				-moz-filter: blur(0px);
+			}
+		}
+		@-ms-keyframes rou{
+			0%{
+				-ms-filter: blur(1.2px);
+			}
+			50%{
+				-ms-filter: blur(4px);
+			}
+			100%{
+				-ms-filter: blur(0px);
+			}
+		}
+		@keyframes rou{
+			0%{
+				-webkit-filter: blur(1.2px);
+			}
+			50%{
+				-webkit-filter: blur(4px);
+			}
+			100%{
+				-webkit-filter: blur(0px);
+			}
+		}
+		@-webkit-keyframes cat{
+			0%{
+				-webkit-transform: translate3d(0px, 0px, 0px);
+			}
+			5%{
+				-webkit-transform: translate3d(-2px, -4px, 0px);
+			}
+			10%{
+				-webkit-transform: translate3d(5px, -11px, 0px);
+			}
+			15%{
+				-webkit-transform: translate3d(10px, -11px, 0px);
+			}
+			20%{
+				-webkit-transform: translate3d(9px, -6px, 0px);
+			}
+			25%{
+				-webkit-transform: translate3d(8px, -10px, 0px);
+			}
+			30%{
+				-webkit-transform: translate3d(4px, -8px, 0px);
+			}
+			35%{
+				-webkit-transform: translate3d(8px, -10px, 0px);
+			}
+			40%{
+				-webkit-transform: translate3d(3px, -12px, 0px);
+	
+			}
+			45%{
+				-webkit-transform: translate3d(0px, 0px, 0px);
+			}
+			50%{
+				-webkit-transform: translate3d(-2px, -9px, 0px);
+			}
+			55%{
+				-webkit-transform: translate3d(-2px, -11px, 0px);
+			}
+			60%{
+				-webkit-transform: translate3d(11px, 3px, 0px);
+			}
+			65%{
+				-webkit-transform: translate3d(5px, -13px, 0px);
+			}
+			70%{
+				-webkit-transform: translate3d(-3px, -5px, 0px);
+			}
+			75%{
+				-webkit-transform: translate3d(7px, -8px, 0px);
+			}
+			80%{
+				-webkit-transform: translate3d(8px, -10px, 0px);
+			}
+			85%{
+				-webkit-transform: translate3d(-2px, -7px, 0px);
+
+			}
+			90%{
+				-webkit-transform: translate3d(0px, 0px, 0px);
+			}
+			95%{
+				-webkit-transform: translate3d(-4px, -10px, 0px);
+			}
+			100%{
+				-webkit-transform: translate3d(0px, 0px, 0px);
+			}
+		}
+		@-moz-keyframes cat{
+			0%{
+				-moz-transform: translate3d(0px, 0px, 0px);
+			}
+			5%{
+				-moz-transform: translate3d(-2px, -4px, 0px);
+			}
+			10%{
+				-moz-transform: translate3d(5px, -11px, 0px);
+			}
+			15%{
+				-moz-transform: translate3d(10px, -11px, 0px);
+			}
+			20%{
+				-moz-transform: translate3d(9px, -6px, 0px);
+			}
+			25%{
+				-moz-transform: translate3d(8px, -10px, 0px);
+			}
+			30%{
+				-moz-transform: translate3d(4px, -8px, 0px);
+			}
+			35%{
+				-moz-transform: translate3d(8px, -10px, 0px);
+			}
+			40%{
+				-moz-transform: translate3d(3px, -12px, 0px);
+	
+			}
+			45%{
+				-moz-transform: translate3d(0px, 0px, 0px);
+			}
+			50%{
+				-moz-transform: translate3d(-2px, -9px, 0px);
+			}
+			55%{
+				-moz-transform: translate3d(-2px, -11px, 0px);
+			}
+			60%{
+				-moz-transform: translate3d(11px, 3px, 0px);
+			}
+			65%{
+				-moz-transform: translate3d(5px, -13px, 0px);
+			}
+			70%{
+				-moz-transform: translate3d(-3px, -5px, 0px);
+			}
+			75%{
+				-moz-transform: translate3d(7px, -8px, 0px);
+			}
+			80%{
+				-moz-transform: translate3d(8px, -10px, 0px);
+			}
+			85%{
+				-moz-transform: translate3d(-2px, -7px, 0px);
+
+			}
+			90%{
+				-moz-transform: translate3d(0px, 0px, 0px);
+			}
+			95%{
+				-moz-transform: translate3d(-4px, -10px, 0px);
+			}
+			100%{
+				-moz-transform: translate3d(0px, 0px, 0px);
+			}
+		}
+		@-ms-keyframes cat{
+			0%{
+				-ms-transform: translate3d(0px, 0px, 0px);
+			}
+			5%{
+				-ms-transform: translate3d(-2px, -4px, 0px);
+			}
+			10%{
+				-ms-transform: translate3d(5px, -11px, 0px);
+			}
+			15%{
+				-ms-transform: translate3d(10px, -11px, 0px);
+			}
+			20%{
+				-ms-transform: translate3d(9px, -6px, 0px);
+			}
+			25%{
+				-ms-transform: translate3d(8px, -10px, 0px);
+			}
+			30%{
+				-ms-transform: translate3d(4px, -8px, 0px);
+			}
+			35%{
+				-ms-transform: translate3d(8px, -10px, 0px);
+			}
+			40%{
+				-ms-transform: translate3d(3px, -12px, 0px);
+	
+			}
+			45%{
+				-ms-transform: translate3d(0px, 0px, 0px);
+			}
+			50%{
+				-ms-transform: translate3d(-2px, -9px, 0px);
+			}
+			55%{
+				-ms-transform: translate3d(-2px, -11px, 0px);
+			}
+			60%{
+				-ms-transform: translate3d(11px, 3px, 0px);
+			}
+			65%{
+				-ms-transform: translate3d(5px, -13px, 0px);
+			}
+			70%{
+				-ms-transform: translate3d(-3px, -5px, 0px);
+			}
+			75%{
+				-ms-transform: translate3d(7px, -8px, 0px);
+			}
+			80%{
+				-ms-transform: translate3d(8px, -10px, 0px);
+			}
+			85%{
+				-ms-transform: translate3d(-2px, -7px, 0px);
+
+			}
+			90%{
+				-ms-transform: translate3d(0px, 0px, 0px);
+			}
+			95%{
+				-ms-transform: translate3d(-4px, -10px, 0px);
+			}
+			100%{
+				-ms-transform: translate3d(0px, 0px, 0px);
+			}
+		}
+		@keyframes cat{
+			0%{
+				transform: translate3d(0px, 0px, 0px);
+			}
+			5%{
+				transform: translate3d(-2px, -4px, 0px);
+			}
+			10%{
+				transform: translate3d(5px, -11px, 0px);
+			}
+			15%{
+				transform: translate3d(10px, -11px, 0px);
+			}
+			20%{
+				transform: translate3d(9px, -6px, 0px);
+			}
+			25%{
+				transform: translate3d(8px, -10px, 0px);
+			}
+			30%{
+				transform: translate3d(4px, -8px, 0px);
+			}
+			35%{
+				transform: translate3d(8px, -10px, 0px);
+			}
+			40%{
+				transform: translate3d(3px, -12px, 0px);
+	
+			}
+			45%{
+				transform: translate3d(0px, 0px, 0px);
+			}
+			50%{
+				transform: translate3d(-2px, -9px, 0px);
+			}
+			55%{
+				transform: translate3d(-2px, -11px, 0px);
+			}
+			60%{
+				transform: translate3d(11px, 3px, 0px);
+			}
+			65%{
+				transform: translate3d(5px, -13px, 0px);
+			}
+			70%{
+				transform: translate3d(-3px, -5px, 0px);
+			}
+			75%{
+				transform: translate3d(7px, -8px, 0px);
+			}
+			80%{
+				transform: translate3d(8px, -10px, 0px);
+			}
+			85%{
+				transform: translate3d(-2px, -7px, 0px);
+
+			}
+			90%{
+				transform: translate3d(0px, 0px, 0px);
+			}
+			95%{
+				transform: translate3d(-4px, -10px, 0px);
+			}
+			100%{
+				transform: translate3d(0px, 0px, 0px);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap-box">
+		<h1 class="s1">日</h1>
+		<h1 class="s2">常</h1>
+	</div>
+</body>
+
+</html>
