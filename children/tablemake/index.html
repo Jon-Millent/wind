@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Table-Make</title>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<style type="text/css">
+
+	</style>
+
+	<!--[if lt IE 9]>
+		<style type="text/css">
+	*{
+		display:none;
+	}
+	<style>
+	<![endif]-->
+</head>
+<body>
+
+	<div class="select header">
+		<div class="wrap">
+			<span></span>
+			<span class="it-2"></span>
+			<span class="it-3"></span>
+			<div class="title">
+				Table-Make <a href="">Github</a> <i id="objname">(未命名)</i>		
+			</div>
+		</div>
+	</div>
+	<div class="select tool">
+		<div class="wrap">
+			<ul class="fixed-left">
+				<li class="item" id="newButton">
+					<div class="icon text">&#xe924;</div>
+					<p>新建</p>
+				</li>
+				<li class="item" id="passButton">
+					<div class="icon text">&#xf02f;</div>
+					<p>通用</p>
+				</li>
+				<li class="item" id="xieButton">
+					<div class="icon text">&#xf065;</div>
+					<p>斜线</p>
+				</li>
+				
+				<li class="item" id="getButton">
+					<div class="icon text">&#xe933;</div>
+					<p>获取</p>
+				</li>
+				<li class="item" id="passButton">
+					<div class="icon text">&#xf00a;</div>
+					<p>Github</p>
+				</li>
+				<li class="item sin">
+					
+					<input type="text"  id="textButton" value="" placeholder="文字">
+					
+				</li>
+				<li class="item" id="calcelButton">
+					<div class="icon text">X</div>
+					<p>取消选择</p>
+				</li>
+				<li class="item" id="selfButton">
+					<div class="icon text">&#xf031;</div>
+					<p>合并</p>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	<div class="select content" id="con">
+		<div class="wrap" id="mainbox">
+			<div class="test" id="testwrap"></div>
+			<div id="tablebox">
+				<!-- Table -->
+			</div>
+			<div id="selectAll" class="icon">&#xea3d;</div>
+			<div id="y" class="ybox boxs">
+				<div class="wraps"></div>
+			</div>
+			<div id="x" class="xbox boxs">
+				<div class="wraps"></div>
+			</div>
+		</div>
+	</div>
+	<div class="select bottom">
+		<div class="wrap">
+			<div id="mesXY"></div>
+		</div>
+	</div>
+	<div id="newButton-copy" class="mes mes-new window" style="display: none" >
+		<div class="header-box">New Project<span class="close"></span></div>
+		<div class="con-box">
+			<div class="item item-01">
+				<label for="pro-name">Name:</label><input type="text" name="tableName" id="pro-name"><p>项目名即为table的class name</p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-width">Width:</label><input type="text" name="width" id="pro-width"><p>全局table每格的宽度(PX)</p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-height">Height:</label><input type="text" name="height" id="pro-height"><p>全局table每格的高度(PX)</p>
+			</div>
+			<div class="item item-02" id="table-rev">
+				<label>Text-Align:</label>
+				<span class="icon" title="right">&#xea79;</span>
+				<span class="icon active" title="center">&#xea78;</span>
+				<span class="icon" title="left">&#xea77;</span>
+				<p>(～￣▽￣)～</p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-lineheihgt">Line-Height:</label><input type="text" name="lineHeight" id="pro-lineheihgt"><p>全局table每格的行高(PX)</p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-x">每行格数:</label><input type="text" name="x" id="pro-x"><p>全局table每行(X)的格数</p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-y">每列格数:</label><input type="text" name="y" id="pro-y"><p>全局table每列(Y)的格数</p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-b">边框配置:</label><input type="text" name="border" id="pro-b"><p>例如:1px solid #000</p>
+			</div>
+			<div class="item item-03">
+				<a href="javascript:;" class="btn" id="newButtonOK">OK</a>
+			</div>
+		</div>
+	</div>
+	<div id="passButton-copy" class="mes mes-new mes-pass window" style="display: none;" >
+		<div class="header-box icon">&#xe905; 通用设置<span class="close"></span></div>
+		<form  class="con-box" id="form-pass">
+			<div class="item item-01">
+				<label for="pro1-width">width:</label><input type="text" name="width" id="pro1-width">
+			</div>	
+			<div class="item item-01">
+				<label for="pro1-height">height:</label><input type="text" name="height" id="pro1-height">
+			</div>
+			<div class="item item-01">
+				<label for="pro1-fontsize">font-size:</label><input type="text" name="font-size" id="pro1-fontsize">
+			</div>
+			<div class="item item-01">
+				<label for="pro1-weight">font-weight:</label><input type="text" name="font-weight" id="pro1-weight">
+			</div>	
+			<div class="item item-01">
+				<label for="pro1-family">font-family:</label><input type="text" name="font-family" id="pro1-family">
+			</div>	
+			<div class="item item-01">
+				<label for="pro1-color">font-color:</label><input type="text" name="color" id="pro1-color">
+			</div>	
+			<div class="item item-01">
+				<label for="pro1-bg">bg-color:</label><input type="text" name="background-color" id="pro1-bg">
+			</div>	
+			<div class="item item-01">
+				<label for="pro1-line">line-height:</label><input type="text" name="line-height" id="pro1-line">
+			</div>	
+			<div class="item item-01">
+				<label for="pro1-align">text-align:</label><input type="text" name="text-align" id="pro1-align">
+			</div>	
+			<div class="item item-01">
+				<label for="pro1-align">font-style:</label><input type="text" name="font-style" id="pro1-style">
+			</div>	
+
+			<ul class="item item-01 item-04" id="borderSelect">
+				<li class="item-next" style="padding-left: 30px;">边框：</li>
+				<li class="item-next ic">&#xe232;</li>
+				<li class="item-next ic">&#xe230;</li>
+				<li class="item-next ic">&#xe229;</li>
+				<li class="item-next ic">&#xe22e;</li>
+				<li class="item-next ic active">&#xe22f;</li>
+				<li class="item-next">
+					<input type="text" class="peizhi" placeholder="边框配置(例如)1px solid #000" style="width: 200px;margin-left: 10px;" name="border">
+				</li>
+			</ul>
+			<div class="item item-04">
+				<label for="pro1-align" style="width: 100%">注意：样式优先级别是 全局设置<分组设置<单个设置</label>
+			</div>	
+			<div class="item item-03">
+				<a href="javascript:;" class="btn" id="newButtonPassG" style="margin-top: 40px;">OK</a>
+			</div>
+		</form>
+	</div>
+	<div id="xieButton-copy" class="mes mes-new mes-xie window" style="display: block;" >
+		<div class="header-box icon">&#xe905; 表格斜线设置<span class="close"></span></div>
+		<form  class="con-box" id="formXie">
+			<div class="item item-05" id="xieTest">
+				<span class="bcon fl"></span>
+				<span class="bcon fr"></span>
+			</div>	
+			<div class="item item-01">
+				<label for="pro-xiebg">选择类型:</label><input type="text" name="select" id="pro-xiebg" placeholder="1 或 2"><p></p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-xiebg">斜线颜色:</label><input type="text" name="bg1" id="pro-xiebg" placeholder="例如: #000"><p></p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-bg1">覆盖背景色:</label><input type="text" name="bg2" id="pro-bg1" placeholder="例如: #000"><p>背景色是为了遮盖，以达到斜线的目的</p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-con1">内容一:</label><input type="text" name="con1" id="pro-con1" ><p></p>
+			</div>
+			<div class="item item-01">
+				<label for="pro-con2">内容二:</label><input type="text" name="con2" id="pro-con2" >
+			</div>
+			<div class="item item-03">
+				<a href="javascript:;" class="btn" id="newButtonXie" style="margin-top: 10px;">OK</a>
+			</div>
+		</form>
+	</div>
+
+	<div id="zhe"></div>
+</body>
+<script type="text/javascript" src="./js/pc.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+</html>
