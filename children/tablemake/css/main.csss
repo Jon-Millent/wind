@@ -1,0 +1,454 @@
+html,body,ul,li,p,input,form{
+	padding: 0;
+	margin: 0;
+}
+input{
+	background: #FCFCFC;
+	border-radius: 3px;
+	border:1px solid #D3D1D4;
+	outline: none;
+	text-indent: 2px;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+html{ font-family: "microsoft yahei", "HanHei SC","PingHei","PingFang SC","STHeitiSC-Light","Helvetica Neue","Helvetica","Arial",sans-serif; }
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?zdnm6s');
+  src:  url('../fonts/icomoon.eot?zdnm6s#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?zdnm6s') format('truetype'),
+    url('../fonts/icomoon.woff?zdnm6s') format('woff'),
+    url('../fonts/icomoon.svg?zdnm6s#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.window{
+	transform: scale(5);
+	opacity: 0;
+}
+.window-open{
+	transform: scale(1);
+	opacity: 1;
+}
+li{
+	list-style: none;
+}
+i{
+	font-style: normal;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.icon{
+	font-family: 'icomoon';
+}
+.select{
+	width: 100%;
+}
+.select .wrap{
+	width: 1000px;
+	margin:0 auto;
+}
+.header{
+	height: 20px;
+	padding: 5px 0;
+	background-color: #8CAAAF;
+}
+.header span{
+	display: block;
+	width: 20px;
+	height: 20px;
+	float: left;
+	border-radius: 50%;
+	background-color: #FF5F5C;
+	margin-right: 5px;
+}
+.header span.it-2{
+	background-color: #D0D0D0;
+}
+.header span.it-3{
+	background-color: #00C956;
+}
+.header .title{
+	width: 900px;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+
+}
+.header .title a{
+	color: #fff;
+}
+
+.tool{
+	height: 60px;
+	background: #B3D1C1;
+	background: linear-gradient(10deg,#B3D1C1,#C4FCDE);
+}
+.tool .wrap{
+	height: 50px;
+	padding: 5px 0;
+}
+.tool .fixed-left{
+	float: left;
+	width: 800px;
+	height: 50px;
+
+}
+
+.tool .fixed-left li.item{
+	width: 50px;
+	height: 50px;
+	border-radius: 6px;
+	cursor: pointer;
+	float: left;
+}
+.tool .fixed-left li.item div.text{
+	width: 100%;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	font-size: 30px;
+	color: #333;
+}
+.tool .fixed-left li.item p{
+	width: 100%;
+	height: 15px;
+	line-height: 15px;
+	text-align: center;
+	font-size: 10px;
+	color: #333;
+}
+.tool .fixed-left li.item:hover{
+	background-color: #eee;
+	opacity: 0.8;
+}
+.tool .fixed-left li.item.sin{
+	width: 200px;
+}
+.tool .fixed-left li.item.sin input{
+	width: 180px;
+	height: 30px;
+	margin-top: 10px;
+	margin-left: 10px;
+	text-indent: 10px;
+}
+.tool .fixed-left li.item.sin:hover{
+	opacity: 1;
+	background: #BCE8D0;
+}
+.tool .fixed-public{
+	float: left;
+	width:440px;
+	height: 50px;
+	background-color: #ccc;
+}
+
+.content{
+	position: absolute;
+	top: 90px;
+	bottom: 20px;
+	left: 0;
+	background: #333;
+	background: linear-gradient(to right,#AC9A96,#ECEBE9);
+}
+.content .wrap{
+	width: 1100px;
+	background-color: #fff;
+	height: 100%;
+	overflow: auto;
+	box-shadow: 4px 4px 10px #333;
+	position: relative;
+
+	overflow: hidden;
+}
+#mainbox{
+	position: relative;
+}
+.xbox,.ybox{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	overflow: hidden;
+
+}
+.xbox span,.ybox span{
+	box-sizing: border-box;
+}
+.xbox span{
+	float: left;
+	border-right: 1px solid #333;
+	border-bottom: 1px solid orange;
+}
+.xbox span,.ybox span{
+	
+	display: block;
+	height: 19px;
+	line-height: 19px;
+	text-align: center;
+	background-color: #F3F5F2;
+	color: #404040;
+}
+.boxs span{
+	cursor: pointer;
+}
+.boxs span:hover{
+	background-color: #D8D6D6;
+}
+.ybox span{
+	border-bottom: 1px solid #333;
+	border-right: 1px solid orange;
+}
+.xbox .wraps{
+	height: 100%;
+}
+.xbox{
+	width: 100%;
+	height: 20px;
+	background-color: #EBF0F5;
+
+}
+.ybox{
+	width: 20px;
+	height: 100%;
+	background-color: #ccc;
+}
+#mainbox .test{
+	position: absolute;
+	width: 100%;
+}
+#tablebox{
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	background-color: #fff;
+	overflow: auto;
+}
+.bottom{
+	position: absolute;
+	height: 20px;
+	bottom: 0px;
+	left: 0;
+	background-color: #8CAAAF;
+	text-align: right;
+}
+.message-box{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 20;
+	left: 0;
+	top: 0;
+}
+
+.mohu{
+	-webkit-filter: blur(20px);
+	-moz-filter: blur(20px);
+	-o-filter: blur(20px);
+}
+.mes{
+	width: 600px;
+	height: 400px;
+
+	margin-top: -200px;
+	margin-left: -300px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-color: #E9E8E9;
+	border-radius: 5px;
+
+	-webkit-transition:all 0.5s ease ;
+	-moz-transition:all 0.5s ease ;
+	-ms-transition:all 0.5s ease ;
+	transition:all 0.5s ease ;
+}
+.mes .header-box{
+	position: relative;
+	width: 100%;
+	height: 20px;
+	background-color: #A5A5A5;
+	background: linear-gradient(to bottom,#EBEBEB,#D4D4D4);
+	border-bottom: 1px solid #BDBCBD;
+	text-align: center;
+	line-height: 20px;
+	font-size: 10px;
+	color: #333;
+	border-radius: 5px;
+}
+.mes .con-box{
+	width: 580px;
+	height: 380px;
+	padding: 0 10px;
+	color: #2E2E2F;
+	font-size: 14px;
+}
+.mes .header-box span{
+	position: absolute;
+	display: block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	left: 10px;
+	top: 2.5px;
+	background-color: #FF5F5C;
+	cursor: pointer;
+}
+
+.mes-new .con-box .item{
+	width: 580px;
+	height: 40px;
+
+}
+.mes-new .con-box .item label{
+	display: block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	float: left;
+}
+.mes-new .con-box .item.item-01 input{
+	display: block;
+	width: 200px;
+	height: 20px;
+	float: left;
+	margin-top: 10px;
+	text-indent: 6px;
+	line-height: 20px;
+	font-size: 10px;
+}
+.mes-new .con-box .item p{
+	display: block;
+	width: 270px;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	text-indent: 20px;
+	text-align: center;
+}
+.mes-new .con-box .item.item-02 span{
+	display: block;
+	width: 40px;
+	height: 40px;
+	background-color: #fff;
+	border-radius: 4px;
+	float: left;
+	color: #333;
+	text-align: center;
+	line-height: 40px;
+	font-size: 30px;
+	margin-right: 40px;
+	cursor: pointer;
+}
+.mes-new .con-box .item.item-02 span.active{
+	background: #333;
+	color: #fff;
+}
+.mes-new .con-box .item.item-02 p{
+	width: 100px;
+}
+
+.mes-new .con-box .item a.btn{
+	display: block;
+	width: 300px;
+	height: 20px;
+	margin:10px auto 0 auto;
+	background-color: #50A8F5;
+	background: linear-gradient(to bottom,#60AFF3,#0E6DF6);
+	text-align: center;
+	line-height: 20px;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 6px;
+}
+.mes-pass .con-box .item{
+	width: 50%;
+	float: left;
+}
+.mes-pass .con-box .item.item-01 input{
+	width: 150px;
+}
+.mes-pass .con-box .item.item-03{
+	width: 100%;
+}
+.mes-pass .con-box .item.item-03 input{
+	width: 420px;
+}
+.mes-pass .con-box .item.item-04{
+	width: 100%;
+}
+.mes-pass .con-box .item.item-04 li.item-next{
+	float: left;
+	height: 40px;
+	line-height: 40px;
+}
+.mes-pass .con-box .item.item-04 li.item-next.ic{
+	width: 40px;
+	height: 40px;
+	font-family: 'icomoon';
+	font-size: 40px;
+	background-color: #fff;
+	border-radius: 6px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.mes-pass .con-box .item.item-04 li.item-next.ic.active{
+	background-color: #333;
+	color: #fff;
+}
+
+
+.mes-xie .con-box .item.item-05{
+	width: 460px;
+	height: 120px;
+	padding: 0 60px;
+	background-color: #eee;
+	margin-top: 10px;
+}
+.mes-xie .con-box .item.item-05 span.bcon{
+	display: block;
+	width: 180px;
+	height: 120px;
+	border:1px solid #333;
+}
+th:hover{
+	background-color:orange;
+	cursor: pointer;
+}
+#selectAll{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #333;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+#zhe{
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #fff;
+	opacity: 0.5;
+	z-index: 1;
+}
+#getButtonData code{
+	width: 100%;
+	height: 100%;
+}
+table tr th.activer{
+	background: pink !important;
+}
