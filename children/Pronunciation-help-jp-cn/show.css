@@ -38,16 +38,16 @@ input,textarea{
 	position: relative;
 }
 .box .left textarea,.box .right textarea{
-	width: 468px;
-	height: 328px;
-	resize: none;
-	padding: 10px;
-	font-size: 30px;
-	color: #333;
-	border-radius: 4px;
-	font-weight: bold;
-	
-	border:1px solid #ADADAD;
+    width: 414px;
+    height: 328px;
+    resize: none;
+    padding: 10px;
+    padding-right: 64px;
+    font-size: 30px;
+    color: #333;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid #ADADAD;
 }
 .box .left span.tag,.box .right span.tag{
 	display: inline-block;
